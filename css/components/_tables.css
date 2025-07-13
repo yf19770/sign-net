@@ -1,0 +1,162 @@
+/* public/css/components/_tables.css */
+
+.data-table-container {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+    /* Enable horizontal scroll on mobile */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    /* Force scroll on small screens */
+}
+
+.data-table th,
+.data-table td {
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table .action-buttons i {
+    cursor: pointer;
+    margin-right: 16px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    font-size: 16px;
+}
+
+.data-table .action-buttons i:hover {
+    color: var(--primary-color);
+}
+
+.data-table .screen-name {
+    font-weight: 600;
+}
+
+.data-table .screen-id {
+    font-family: monospace;
+    color: var(--text-muted);
+}
+
+.status-dot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.status-dot::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--green-status);
+}
+
+.status-dot.online::before {
+    background-color: var(--green-status);
+}
+
+/* Explicitly set online color */
+.status-dot.offline::before {
+    background-color: var(--danger-color);
+}
+
+/* =================================== */
+/* --- Responsive Table/Card Layout -- */
+/* =================================== */
+
+/* This rule applies ONLY to screens 768px or narrower */
+@media (max-width: 768px) {
+    .data-table-container {
+        overflow-x: hidden; /* Disable horizontal scroll for card view */
+        border: none;
+        background-color: transparent;
+    }
+
+    .data-table .screen-id {
+        display: none;
+    }
+
+    .data-table .screen-name {
+        font-weight: 400; /* Change from the default bold to normal weight on mobile */
+    }
+
+    .data-table {
+        min-width: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .data-table thead {
+        /* Hides the original table header on mobile */
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .data-table tr {
+        display: block;
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        padding: 16px;
+    }
+
+    .data-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        justify-content: space-between;
+    }
+    
+    .data-table td:first-child {
+        padding-top: 0;
+    }
+
+    .data-table td::before {
+        content: attr(data-label); /* Use data-label for the title */
+        font-weight: 600;
+        color: var(--text-main);
+        text-align: left;
+        margin-right: 16px;
+    }
+
+    /* Adjust specific cells for card view */
+    .data-table .action-buttons {
+        justify-content: flex-end; /* Align icons to the end */
+    }
+    .data-table .action-buttons i:last-child {
+        margin-right: 0;
+    }
+}

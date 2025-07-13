@@ -1,0 +1,176 @@
+/* public/css/components/_scheduler.css */
+
+.scheduler-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.scheduler-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.scheduler-nav h3 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.scheduler-view-options {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- TABS UI for View Switcher --- */
+.view-tabs {
+    display: flex;
+    background-color: var(--bg-lighter);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.view-tabs .btn {
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.view-tabs .btn.active {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .view-tabs .btn.active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SCHEDULER GRID --- */
+.scheduler-viewport {
+    height: 75vh;
+    overflow: auto;
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.scheduler-container {
+    display: grid;
+    position: relative;
+    grid-template-rows: auto 1fr;
+    /* This container will now naturally be 100% width of its parent */
+    /* and will expand if its content (the columns) becomes wider. */
+}
+
+.scheduler-container .scheduler-header {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-light);
+    z-index: 10;
+    display: grid;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.scheduler-container .scheduler-header>div {
+    border-left: 1px solid var(--border-color);
+    padding: 16px 8px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+}
+
+.scheduler-container .scheduler-header>div:first-child {
+    border-left: none;
+}
+
+.timeline {
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
+    position: sticky;
+    left: 0;
+    z-index: 11;
+    background-color: var(--bg-light);
+}
+
+.timeline .time-slot {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.day-column,
+.screen-column {
+    grid-row: 2 / -1;
+    position: relative;
+    border-left: 1px solid var(--border-color);
+    /* min-width is now handled by minmax in the grid template */
+    overflow: hidden;
+}
+
+.scheduled-item {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    padding: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--primary-hover);
+    transition: all 0.2s ease;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scheduled-item:hover {
+    transform: scale(1.02);
+    z-index: 5;
+    background-color: var(--primary-hover);
+}
+
+.scheduled-item .item-media-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- CURRENT HOUR HIGHLIGHT --- */
+.timeline .time-slot.current-hour {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.current-hour-highlight {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(59, 130, 246, 0.1);
+    z-index: 1;
+    pointer-events: none;
+}

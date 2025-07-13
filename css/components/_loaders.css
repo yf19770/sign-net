@@ -1,0 +1,37 @@
+/* public/css/components/_loaders.css */
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton-container {
+  background-color: var(--bg-lighter);
+  background-image: linear-gradient(to right, var(--bg-lighter) 0%, var(--bg-light) 20%, var(--bg-lighter) 40%, var(--bg-lighter) 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  animation: shimmer 1.5s linear infinite;
+  overflow: hidden;
+  position: relative; /* Needed for the image to overlay correctly */
+}
+
+/* The image starts invisible and centered */
+.skeleton-container .lazy-image {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* When loaded, the image becomes visible */
+.skeleton-container .lazy-image.is-loaded {
+  opacity: 1;
+}
