@@ -220,6 +220,7 @@ function initApp(user) {
 
 // --- AUTH STATE LISTENER ---
 auth.onAuthStateChanged(user => {
+
     if (user) {
         if (window.location.pathname.includes('login.html')) window.location.replace('index.html');
         else initApp(user);
