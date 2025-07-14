@@ -15,6 +15,7 @@ const appState = {
     currentUser: null,
     userSettings: {},
     allScreens: [],
+    screenStatuses: {}, // MASTER copy of statuses from RTDB
     allMedia: [],
     allSchedules: [],
     currentSchedulerView: 'day',
@@ -100,19 +101,23 @@ function initApp(user) {
         }
     };
     
+    // Listen for connection statuses from RTDB.
     const connectionsRef = rtdb.ref(`/connections/${user.uid}`);
     connectionsRef.on('value', (snapshot) => {
-        const statuses = snapshot.val() || {};
+        appState.screenStatuses = snapshot.val() || {};
+        
         let needsUIRefresh = false;
         appState.allScreens.forEach(screen => {
-            const connectionInfo = statuses[screen.id];
-            const isStale = !connectionInfo || (Date.now() - connectionInfo.lastSeen > 75000);
-            const newStatus = (connectionInfo?.status === 'online' && !isStale) ? 'online' : 'offline';
+            // SIMPLIFIED LOGIC: Trust the 'status' field directly.
+            const connectionInfo = appState.screenStatuses[screen.id];
+            const newStatus = (connectionInfo?.status === 'online') ? 'online' : 'offline';
+            
             if (screen.status !== newStatus) {
                 screen.status = newStatus;
                 needsUIRefresh = true;
             }
         });
+
         if (needsUIRefresh) {
             if (document.querySelector('#page-screens.active')) UI.renderScreens(appState.allScreens);
             reRenderDashboard();
@@ -137,12 +142,22 @@ function initApp(user) {
         reRenderDashboard();
     });
 
+    // Listen for the main screen list from Firestore.
     ScreenManager.listenForScreenChanges(user.uid, newScreenData => {
-        const currentStatuses = appState.allScreens.reduce((acc, screen) => {
-            acc[screen.id] = screen.status;
-            return acc;
-        }, {});
-        appState.allScreens = newScreenData.map(newScreen => ({ ...newScreen, status: currentStatuses[newScreen.id] || 'offline' }));
+        // Construct the screen list, merging config from Firestore with live status from RTDB.
+        appState.allScreens = newScreenData.map(newScreen => {
+            // SIMPLIFIED LOGIC: Trust the 'status' field directly.
+            const connectionInfo = appState.screenStatuses[newScreen.id];
+            const status = (connectionInfo?.status === 'online') ? 'online' : 'offline';
+            
+            // Return a clean object with only the properties we trust from each source.
+            return { 
+                id: newScreen.id,
+                name: newScreen.name,
+                defaultImage: newScreen.defaultImage,
+                status: status 
+            };
+        });
         
         if (document.querySelector('#page-screens.active')) UI.renderScreens(appState.allScreens);
         
