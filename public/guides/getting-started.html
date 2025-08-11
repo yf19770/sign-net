@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Signet | A Step-by-Step Guide</title>
+    <meta name="description" content="Learn how to set up your first digital sign with Signet in 5 easy steps. This guide covers creating screens, uploading media, pairing your device, and scheduling content.">
+    
+    <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Shared & Page-Specific CSS -->
+    <link rel="stylesheet" href="/css/landing.css">
+    <link rel="stylesheet" href="/css/guides.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- ====== Guide Hero Section ====== -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Set Up Your First Screen in Minutes</h1>
+                <p>Welcome to Signet! This guide will walk you through the five simple steps to get your content live on your first screen.</p>
+            </div>
+        </section>
+
+        <div class="guide-container">
+            <!-- ====== Step 1: Create a Screen ====== -->
+            <div class="guide-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h2>Create a Screen</h2>
+                    <p>Everything in Signet starts with a virtual screen. In the dashboard, navigate to the "Screens" page and click the "Add Screen" button. Give your screen a memorable name, like "Lobby TV" or "Cafeteria Menu".</p>
+                    <div class="guide-visual">
+                        <div class="modal-content-demo">
+                            <div class="modal-header"><h3>Add New Screen</h3></div>
+                            <div class="modal-body">
+                                <div class="form-group"><label>Screen Name</label><input type="text" placeholder="e.g., Main Lobby Entrance" value="Lobby TV"></div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Create Screen</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Step 2: Upload Media ====== -->
+            <div class="guide-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h2>Upload Your Content</h2>
+                    <p>Next, you need something to display. Go to the "Media Library" and drag-and-drop your images (or a whole playlist!) into the upload area. This will be the content you schedule to your screens.</p>
+                    <div class="guide-visual">
+                        <div class="media-upload-area-demo">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>Drag & Drop or Click to Upload</h3>
+                            <p>PNG, JPG, GIF, SVG supported</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ====== Step 3: Pair Your Device ====== -->
+            <div class="guide-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h2>Pair Your Device</h2>
+                    <p>Now, let's link your physical screen (like a TV with a Raspberry Pi) to Signet. In the dashboard, click the link icon <i class="fas fa-link"></i> on your new screen. Then, on your physical screen device, open a web browser to <strong>sign-net.app/view</strong> and enter the 6-digit code.</p>
+                    <div class="guide-visual dual-visual">
+                        <div class="data-table-card-demo">
+                            <span>Lobby TV</span>
+                            <div class="action-buttons"><i class="fas fa-link active"></i><i class="fas fa-pen-to-square"></i><i class="fas fa-trash-can"></i></div>
+                        </div>
+                        <div class="pairing-box-demo">
+                            <h1>Pair This Screen</h1>
+                            <div id="pairing-pin-display">123 456</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ====== Step 4: Schedule Content ====== -->
+            <div class="guide-step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h2>Schedule the Content</h2>
+                    <p>This is the magic step. Go to the "Scheduler" and create a new event. Select the screen you want to target ("Lobby TV"), the content you want to show, and the start and end times.</p>
+                    <div class="guide-visual">
+                        <div class="modal-content-demo large">
+                            <div class="modal-header"><h3>Create Schedule Item</h3></div>
+                            <div class="modal-body">
+                                <div class="form-group"><label>Select Screen(s)</label><div class="multi-select-container"><div class="multi-select-item selected">Lobby TV</div></div></div>
+                                <div class="form-group"><label>Select Content</label><div class="image-picker-demo"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" alt="Hotel"><span class="picker-label">Welcome.jpg</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ====== Step 5: You're Live! ====== -->
+            <div class="guide-step">
+                <div class="step-number">05</div>
+                <div class="step-content">
+                    <h2>You're Live!</h2>
+                    <p>That's it! Your physical screen will now display the content you scheduled. You can confirm everything is working from the Live Dashboard, which shows a preview of what's currently playing on all your online screens.</p>
+                    <div class="guide-visual">
+                        <div class="screen-preview-card-demo">
+                            <div class="image-container"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" alt="Live content"></div>
+                            <div class="screen-info"><span class="name">Lobby TV</span><span class="status-dot online">Online</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Next Steps CTA ====== -->
+            <div class="next-steps-section">
+                <h3>What's Next?</h3>
+                <p>You've mastered the basics! Now you can explore more powerful features.</p>
+                <div class="next-steps-buttons">
+                    <a href="/features.html" class="btn btn-secondary">Explore All Features</a>
+                    <a href="/guides/creating-playlists.html" class="btn btn-primary">Learn to Create a Playlist <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="/firebase-config.js"></script>
+    <script type="module" src="/js/landing-auth.js"></script>
+    <script src="/js/page-loader.js"></script>
+</body>
+</html>

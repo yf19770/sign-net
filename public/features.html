@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features | Signet - Free, Open-Source Digital Signage Platform</title>
+    <meta name="description" content="Discover Signet's powerful features: a central command dashboard, dynamic content playlists with drag-and-drop, effortless scheduling, and the freedom of open-source.">
+    
+    <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <!-- Google Fonts (from index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (from index.html) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Shared CSS from your landing page -->
+    <link rel="stylesheet" href="/css/landing.css">
+    <!-- Page-specific CSS for features -->
+    <link rel="stylesheet" href="/css/features.css">
+</head>
+<body>
+
+    <!-- This div will be populated by page-loader.js -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- ====== Hero Section ====== -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>The Modern Toolkit for Digital Signage</h1>
+                <p>Signet is engineered to be powerful yet intuitive. See how our core features give you complete command over your digital displays.</p>
+            </div>
+        </section>
+
+        <!-- ====== Feature 1: Central Command Center ====== -->
+        <section class="feature-section" id="feature-dashboard">
+            <div class="container feature-row">
+                <div class="feature-text-content">
+                    <h2>Central Command Center</h2>
+                    <p>Don't guess, know. The dashboard is your mission control, providing a real-time, bird's-eye view of your entire screen network. Instantly see what's online, what's offline, and what content is currently playing on every display.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Monitor the health of all screens at a glance.</li>
+                        <li><i class="fas fa-check-circle"></i> Visually confirm the content playing on each screen.</li>
+                        <li><i class="fas fa-check-circle"></i> Access key stats with quick-view widgets.</li>
+                    </ul>
+                </div>
+                <div class="feature-visual-content">
+                    <div class="dashboard-visual-wrapper">
+                        <div class="screen-preview-card" data-index="1">
+                            <div class="image-container"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" alt="Restaurant screen"></div>
+                            <div class="screen-info"><span class="name">Cafeteria Screen</span><span class="status-dot online">Online</span></div>
+                        </div>
+                        <div class="screen-preview-card" data-index="2">
+                            <div class="image-container"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800" alt="Lobby screen"></div>
+                            <div class="screen-info"><span class="name">Main Lobby</span><span class="status-dot online">Online</span></div>
+                        </div>
+                         <div class="screen-preview-card" data-index="3">
+                            <div class="image-container"><div class="offline-overlay">Offline</div></div>
+                            <div class="screen-info"><span class="name">Meeting Room 3</span><span class="status-dot offline">Offline</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ====== Feature 2: Dynamic Content & Playlists ====== -->
+        <section class="feature-section" id="feature-media">
+            <div class="container feature-row reverse">
+                <div class="feature-text-content">
+                    <h2>Dynamic Content & Playlists</h2>
+                    <p>Bring your screens to life. Group images into powerful, reusable playlists. Set custom durations for each slide and reorder them with a simple drag-and-drop to create compelling, looping slideshows perfect for any environment.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Create unlimited playlists with custom timings.</li>
+                        <li><i class="fas fa-check-circle"></i> Drag-and-drop to instantly reorder slides.</li>
+                        <li><i class="fas fa-check-circle"></i> Set any image or playlist as a global fallback.</li>
+                    </ul>
+                    <a href="/guides/creating-playlists.html" class="btn btn-secondary">Learn to build a playlist <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-visual-content">
+                    <div class="playlist-editor-demo">
+                        <div class="playlist-slide-demo"><img src="https://firebasestorage.googleapis.com/v0/b/signet-osfy.firebasestorage.app/o/nature.jpg?alt=media&token=63571ca2-3644-4570-bd7c-e3c734fc1690" alt="Hotel"></div>
+                        <div class="playlist-slide-demo is-dragging-demo">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/signet-osfy.firebasestorage.app/o/office.jpg?alt=media&token=1ee76b8c-3082-445e-9da7-95b99378dfa5" alt="Office">
+                            <div class="duration-editor-demo">15s</div>
+                        </div>
+                        <div class="drop-placeholder-demo"></div>
+                        <div class="playlist-slide-demo"><img src="https://firebasestorage.googleapis.com/v0/b/signet-osfy.firebasestorage.app/o/campus.jpg?alt=media&token=a5ca078f-635b-47d1-89c3-023fafd71c7d" alt="Campus"></div>
+                        <i class="fas fa-hand-rock drag-cursor-demo"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Feature 3: Effortless Scheduling (Unchanged) ====== -->
+        <section class="feature-section" id="feature-scheduler">
+            <div class="container feature-row">
+                <div class="feature-text-content">
+                    <h2>Effortless Scheduling</h2>
+                    <p>Take the guesswork out of content planning. Our visual, timeline-based scheduler lets you organize content for specific screens and times. Plan promotions, announcements, and daily menus with precision and ease.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Plan by the day or see a whole week per screen.</li>
+                        <li><i class="fas fa-check-circle"></i> Schedule content to run for minutes, hours, or across multiple days.</li>
+                        <li><i class="fas fa-check-circle"></i> High-priority events automatically override default content.</li>
+                    </ul>
+                </div>
+                <div class="feature-visual-content">
+                     <div class="scheduler-demo-wrapper">
+                        <div class="scheduler-header-demo">
+                            <div></div><div>Lobby</div><div>Cafeteria</div><div>Floor 2</div>
+                        </div>
+                        <div class="timeline-demo">
+                            <div>9 AM</div><div>10 AM</div><div>11 AM</div><div>12 PM</div>
+                        </div>
+                        <div class="schedule-column-demo">
+                             <div class="schedule-block-demo" style="top: 20px; height: 160px;">Welcome Loop</div>
+                        </div>
+                        <div class="schedule-column-demo">
+                            <div class="schedule-block-demo" style="top: 180px; height: 60px; background-color: #e53e3e;">Lunch Menu</div>
+                        </div>
+                         <div class="schedule-column-demo">
+                            <div class="schedule-block-demo" style="top: 80px; height: 100px; background-color: #dd6b20;">Safety Notice</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ====== Feature 4: Transparent & Community-Driven ====== -->
+        <section class="feature-section" id="feature-open-source">
+            <div class="container feature-row reverse">
+                <div class="feature-text-content">
+                    <h2>Transparent & Community-Driven</h2>
+                    <p>Signet is built on trust. As a 100% open-source project, its code is available for anyone to review, audit, and contribute to. This isn't a black box; it's a collaborative platform shaped by its users.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Full source code available on GitHub.</li>
+                        <li><i class="fas fa-check-circle"></i> No data tracking. No hidden telemetry. Ever.</li>
+                        <li><i class="fas fa-check-circle"></i> Suggest and vote on new features you want to see.</li>
+                    </ul>
+                     <a href="https://github.com/yf19770/sign-net/" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> View Source on GitHub</a>
+                </div>
+                <div class="feature-visual-content">
+                    <div class="github-card-demo">
+                        <div class="gh-header">
+                            <i class="fab fa-github"></i>
+                            <span class="repo-name">yf19770 / <strong>sign-net</strong></span>
+                        </div>
+                        <div class="gh-stats">
+                            <span><i class="fas fa-star"></i> Star <div class="gh-count">142</div></span>
+                            <span><i class="fas fa-code-branch"></i> Fork <div class="gh-count">21</div></span>
+                        </div>
+                        <div class="gh-issue-card">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="issue-title">Feature Request: Add video support</span>
+                            <span class="gh-label">enhancement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== Final CTA ====== -->
+        <section class="final-cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready to Revolutionize Your Displays?</h2>
+                    <p>Get started in minutes with our free hosted service or deploy it yourself. The powerful, open, and free digital signage platform is here.</p>
+                    <button id="final-cta-btn" class="btn btn-primary btn-lg">Create Your Free Account</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- This div will be populated by page-loader.js -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts for auth and page loading -->
+    <script src="/firebase-config.js"></script>
+    <script type="module" src="/js/landing-auth.js"></script>
+    <script src="/js/page-loader.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* --- START OF FIX: New styles for double-buffer system --- */
+#image-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #000;
+}
+
+.image-slot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* The cross-fade transition */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.image-slot.visible {
+    opacity: 1;
+}
+/* --- END OF FIX --- */
+
+
+/* --- PAIRING SCREEN --- */
+#pairing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111827;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#pairing-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pairing-box {
+    background-color: #1F2937;
+    padding: 40px 60px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    max-width: 550px;
+    border: 1px solid #333;
+}
+
+.pairing-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    color: #F9FAFB;
+}
+
+.pairing-logo i {
+    font-size: 2.5rem;
+    color: #3B82F6;
+}
+
+.pairing-logo span {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.pairing-box h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.pairing-box p {
+    font-size: 1.1rem;
+    color: #9CA3AF;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+#pairing-pin-display {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 15px;
+    color: #fff;
+    background-color: #111827;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-family: "Courier New", Courier, monospace;
+    border: 1px solid #333;
+}
+
+.pairing-box .status-text {
+    color: #888;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 0;
+    height: 20px;
+    transition: color 0.3s ease;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #444;
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.pairing-stale-content {
+    display: none;
+}
+
+.pairing-box.stale-session-active .pairing-active-content {
+    display: none;
+}
+
+.pairing-box.stale-session-active .pairing-stale-content {
+    display: block;
+}
+
+.pairing-stale-content .btn-primary {
+    background-color: #3B82F6;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.pairing-stale-content .btn-primary:hover {
+    background-color: #2563EB;
+}
+
+/* --- ERROR & LOGOUT MODAL STYLES --- */
+.overlay-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-box {
+    background-color: #1F2937;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    color: #9CA3AF;
+}
+
+.overlay-box h1 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.modal-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-actions .btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-actions .btn-secondary {
+    background-color: #374151;
+    color: #fff;
+}
+.modal-actions .btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+.modal-actions .btn-danger {
+    background-color: #EF4444;
+    color: #fff;
+}
+.modal-actions .btn-danger:hover {
+    background-color: #f87171;
+}

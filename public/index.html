@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signet | Free & Open-Source Digital Signage Platform</title>
+    <meta name="description" content="Discover Signet, the 100% free, self-hostable, and open-source digital signage software. Take full control of your screens, content, and data. Get started today!">
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/landing.css">
+    <script src="js/page-loader.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h1>The Open-Source Digital Signage Platform.</h1>
+                    <p>Signet is a powerful, 100% free, and self-hostable digital signage solution. Take full control of your screens, your content, and your data.</p>
+                    <div class="hero-buttons">
+                        <button id="get-started-btn" class="btn btn-primary btn-lg">
+                            <span class="desktop-text">Get Started Free</span>
+                            <span class="mobile-text">Get Started</span>
+                        </button>
+                        <a href="https://github.com/yf19770/sign-net/" target="_blank" class="btn btn-secondary btn-lg">
+                            <i class="fab fa-github"></i> 
+                            <span class="desktop-text">View Source on GitHub</span>
+                            <span class="mobile-text">View Source</span>
+                        </a>
+                    </div>
+                    <div id="login-error" class="login-error-message"></div>
+                </div>
+                
+                <div class="hero-visual-container">
+                    <div class="hero-main-window parallax-item" data-parallax-strength="5">
+                        <div class="header"><span class="header-dot"></span><span class="header-dot"></span><span class="header-dot"></span></div>
+                        <div class="timeline"><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span></div>
+                        <div class="col"><div class="schedule-block" style="height: 120px;">Lobby Screen</div></div>
+                        <div class="col"><div class="schedule-block second" style="height: 60px; margin-top: 80px;">Cafeteria</div></div>
+                        <div class="col"><div class="schedule-block third" style="height: 150px; margin-top: 40px;">Meeting Room</div></div>
+                    </div>
+            
+                    <div class="hero-floating-item widget-card parallax-item" data-parallax-strength="-15">
+                        <div class="header"><span>Screen Status</span><i class="fas fa-desktop"></i></div>
+                        <div class="value"><span class="online">18</span> / <span class="total">20</span></div>
+                    </div>
+            
+                    <div class="hero-floating-item media-card parallax-item" data-parallax-strength="-25">
+                        <div class="media-icons-cluster"><i class="fas fa-file-video"></i><i class="fas fa-file-audio"></i><i class="fas fa-file-image"></i></div>
+                    </div>
+            
+                    <div class="hero-floating-item modal-snippet parallax-item" data-parallax-strength="20">
+                        <div class="form-group"><label>Select Screen(s)</label><div class="multi-select-container"><div class="multi-select-item selected">Main Lobby</div><div class="multi-select-item">Cafeteria</div></div></div>
+                    </div>
+            
+                    <div class="hero-floating-item status-dot parallax-item" data-parallax-strength="10">Online</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+             <div class="container">
+                <div class="section-header"><h2>Everything You Need, Nothing You Don't.</h2></div>
+                <div class="features-grid">
+    <!-- Card 1: Live Dashboard -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-th-large"></i></div>
+        <h3>Live Dashboard</h3>
+        <p>Get a bird's-eye view of all your screens. See what's currently playing and check real-time online/offline status at a glance.</p>
+        <a href="/features.html#feature-dashboard" class="card-learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 2: Scheduler -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3>Intuitive Scheduler</h3>
+        <p>Visually plan your content for days, weeks, or months in advance with a simple, easy-to-use interface.</p>
+        <a href="/features.html#feature-scheduler" class="card-learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 3: Media Library & Playlists -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-images"></i></div>
+        <h3>Unified Media Library</h3>
+        <p>Upload, store, and organize all your images and create powerful playlists in one central library, accessible from anywhere.</p>
+        <a href="/features.html#feature-media" class="card-learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 4: Self-Hosted -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-server"></i></div>
+        <h3>Self-Hosted Control</h3>
+        <p>Want full control? Signet’s open-source code can be hosted on your own server, giving you full ownership of your data and setup.</p>
+        <a href="/features.html#feature-open-source" class="card-learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Card 5: Extensible & Free -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+        <h3>Extensible & Free</h3>
+        <p>As a 100% free and open-source project, you can customize, extend, and adapt Signet to your exact needs.</p>
+        <a href="/features.html#feature-open-source" class="card-learn-more">Learn more <i class="fas fa-arrow-right"></i></a>
+    </div>
+    
+    <!-- Card 6: Feature Requests -->
+    <div class="feature-card reveal-up">
+        <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Feature Requests</h3>
+        <p>Have a great idea? Our development is guided by the community. Propose and vote on new features directly on our GitHub page.</p>
+        <a href="https://github.com/yf19770/sign-net/" target="_blank" class="card-learn-more">Suggest a Feature <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <section class="foss-support-section" id="our-promise">
+             <div class="container">
+                <div class="section-header"><h2>Our Open Source Promise</h2><p>Signet is free because of the amazing people who support it. Here’s how you can be a part of our mission.</p></div>
+                <div class="promise-grid">
+                    <div class="promise-card free-card reveal-up">
+                        <i class="fas fa-lock-open promise-icon"></i>
+                        <div>
+                           <h3>Open & Accessible</h3>
+                           <p>Signet is open-source and easy to get started with — no trials, no locked features, and no credit card needed. The source code is public, and you can run it yourself or use our hosted version — whichever suits you best.</p>
+                           <a href="https://github.com/yf19770/sign-net/" target="_blank" class="btn btn-secondary">Request a Feature</a>
+                        </div>
+                    </div>
+                    <div class="promise-card fuel-card reveal-up">
+                        <i class="fas fa-coffee promise-icon"></i>
+                        <div>
+                           <h3>Fuel Our Development</h3>
+                           <p>Like this project? A small donation helps cover server costs for the free hosted version and allows me to dedicate more time to new features.</p>
+                           <a href="https://coff.ee/osfy" target="_blank" class="btn btn-bmac"><i class="fas fa-mug-hot"></i> Buy Me a Coffee</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+                <div class="faq-grid">
+                    <div class="faq-item reveal-up"><h3>Is it really free? What's the catch?</h3><p>Yes, 100% free. The free hosted version is supported by community donations. You can also self-host it for free on your own hardware.</p></div>
+                    <div class="faq-item reveal-up"><h3>Do I need to install anything?</h3><p>Our hosted version is ready to go — no setup required. If you prefer to run it yourself, you’re welcome to explore the open-source code on GitHub.</p></div>
+                    <div class="faq-item reveal-up"><h3>What is the difference between hosted and self-hosted?</h3><p>The hosted version is a free, managed service we provide for convenience. Self-hosting means you run the software on your own server, giving you ultimate control over data and configuration.</p></div>
+                    <div class="faq-item reveal-up"><h3>How can I contribute to the project?</h3><p>We welcome all contributions! You can help by submitting bug reports, writing documentation, suggesting new features, or by submitting code via pull requests on GitHub.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta-section">
+            <div class="container"><div class="cta-box reveal-up"><h2>Ready to Take Control of Your Displays?</h2><p>Use our free hosted service or deploy it yourself. The powerful, open, and free digital signage platform is here.</p><button id="final-cta-btn" class="btn btn-primary btn-lg">Create Your Free Account</button></div></div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js" type="module"></script>
+    
+    <!-- Firebase Config & Auth Logic -->
+    <script src="firebase-config.js"></script>
+    <script type="module" src="js/landing-auth.js"></script>
+    <script src="js/page-loader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu Toggle ---
+            const menuToggleBtn = document.getElementById('menu-toggle-btn');
+            const navLinks = document.getElementById('nav-links');
+            if (menuToggleBtn && navLinks) { menuToggleBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); }); }
+            
+            // --- Sticky Header on Scroll ---
+            const header = document.querySelector('.main-header');
+            if (header) { window.addEventListener('scroll', () => { if (window.scrollY > 50) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); } }); }
+            
+            // --- Reveal elements on scroll animation ---
+            const revealElements = document.querySelectorAll('.reveal-up');
+            if (revealElements.length > 0) { const revealObserver = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, }); revealElements.forEach(element => { revealObserver.observe(element); }); }
+
+            // --- Interactive Hero Visual Logic ---
+            const visualContainer = document.querySelector('.hero-visual-container');
+            const parallaxItems = document.querySelectorAll('.parallax-item');
+            const mainWindow = document.querySelector('.hero-main-window');
+            const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+
+            if(visualContainer && parallaxItems.length > 0 && mainWindow) {
+                setTimeout(() => { mainWindow.classList.add('visible'); }, 100);
+                if (isDesktop) {
+                    const ROTATE_STRENGTH = 8;
+                    const handleMouseMove = (e) => {
+                        const rect = visualContainer.getBoundingClientRect();
+                        const mouseX = e.clientX - rect.left;
+                        const mouseY = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const percentX = (mouseX - centerX) / centerX;
+                        const percentY = (mouseY - centerY) / centerY;
+                        parallaxItems.forEach(item => {
+                            const strength = item.dataset.parallaxStrength || 10;
+                            const moveX = percentX * strength;
+                            const moveY = percentY * strength;
+                            const rotateX = percentY * -ROTATE_STRENGTH;
+                            const rotateY = percentX * ROTATE_STRENGTH;
+                            item.style.setProperty('--x', `${moveX}px`);
+                            item.style.setProperty('--y', `${moveY}px`);
+                            item.style.setProperty('--rx', `${rotateX}deg`);
+                            item.style.setProperty('--ry', `${rotateY}deg`);
+                        });
+                    };
+                    const resetPositions = () => {
+                         parallaxItems.forEach(item => {
+                            item.style.setProperty('--x', '0px');
+                            item.style.setProperty('--y', '0px');
+                            item.style.setProperty('--rx', '0deg');
+                            item.style.setProperty('--ry', '0deg');
+                        });
+                    };
+                    visualContainer.addEventListener('mousemove', handleMouseMove);
+                    visualContainer.addEventListener('mouseleave', resetPositions);
+                    mainWindow.addEventListener('mouseenter', () => { mainWindow.style.setProperty('--s', '1.03'); });
+                    mainWindow.addEventListener('mouseleave', () => { mainWindow.style.setProperty('--s', '1'); });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

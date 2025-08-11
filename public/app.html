@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signet - Admin Dashboard</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/theme-loader.js"></script>
+</head>
+<body>
+    <div id="sidebar-overlay"></div>
+
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <div class="logo-wrapper">
+                        <i class="fas fa-satellite-dish logo-icon"></i>
+                        <h1>Signet</h1>
+                    </div>
+                    <i class="fas fa-times sidebar-close-btn" id="sidebar-close-btn"></i>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                        <li><a href="#" class="nav-link active" data-page="screens"><i class="fas fa-desktop"></i> Screens</a></li>
+                        <li><a href="#" class="nav-link" data-page="media"><i class="fas fa-images"></i> Media Library</a></li>
+                        <li><a href="#" class="nav-link" data-page="scheduler"><i class="fas fa-calendar-alt"></i> Scheduler</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div id="user-info" class="user-info"></div>
+                <div class="sidebar-footer-actions">
+                    <a href="#" id="logout-btn" class="logout-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                        <i class="fas fa-moon icon moon"></i>
+                        <i class="fas fa-sun icon sun"></i>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <i class="fas fa-bars menu-toggle" id="menu-toggle"></i>
+                    <h2 id="page-title">Dashboard Overview</h2>
+                </div>
+                <div class="header-actions">
+                    <!-- Buttons are dynamically generated -->
+                </div>
+            </header>
+
+            <section id="page-dashboard" class="page"></section>
+            <section id="page-screens" class="page active"></section>
+            <section id="page-media" class="page"></section>
+            <section id="page-scheduler" class="page"></section>
+
+            <input type="file" id="file-upload-input" multiple hidden accept="image/png, image/jpeg, image/gif, image/svg+xml">
+        </main>
+    </div>
+
+    <!-- MODALS -->
+    <div id="modal-add-screen" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Screen</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="add-screen-name-input">Screen Name</label>
+                    <input type="text" id="add-screen-name-input" placeholder="e.g., Main Lobby Entrance">
+                </div>
+                <div class="form-group">
+                    <label>Default Content (Optional)</label>
+                    <p class="form-hint">Shows when no content is scheduled for this specific screen.</p>
+                    <div id="add-screen-media-picker-container"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="save-new-screen-btn" class="btn btn-primary">Create Screen</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-enter-pin" class="modal-overlay">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header">
+                <h3>Pair Screen</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <p class="form-hint" style="text-align: center; margin-bottom: 20px;">
+                    On your viewer device, open:
+                    <strong style="display: block; margin-top: 8px; font-size: 1rem; color: var(--green-status);">
+                        sign-net.app/view.html
+                        <i id="copy-view-url-btn" class="fas fa-copy" title="Copy URL" style="cursor: pointer; margin-left: 8px;"></i>
+                    </strong>
+                </p>
+                <input type="hidden" id="pin-entry-screen-id-storage">
+                <p class="form-hint" style="text-align: center; margin-bottom: 20px;">Enter the 6-digit code displayed on your physical screen.</p>
+                <div class="form-group">
+                    <input type="text" id="pairing-pin-input" placeholder="123456" maxlength="6" style="font-size: 2rem; text-align: center; letter-spacing: 5px;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="confirm-pin-and-pair-btn" class="btn btn-primary">Confirm & Pair</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-edit-screen" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="screen-modal-title">Edit Screen</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="screen-id-edit-storage">
+                <div class="form-group">
+                    <label for="screen-name-input">Screen Name</label>
+                    <input type="text" id="screen-name-input" placeholder="e.g., Main Lobby Entrance">
+                </div>
+                <div class="form-group">
+                    <label>Default Content (Optional)</label>
+                    <p class="form-hint">Shows when no content is scheduled for this specific screen.</p>
+                    <div id="edit-screen-media-picker-container"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="save-screen-btn" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-create-schedule" class="modal-overlay">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 id="schedule-modal-title">Create Schedule Item</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="schedule-id-edit-storage">
+                <div class="form-group">
+                    <label>Select Screen(s)</label>
+                    <div class="multi-select-container" id="schedule-screen-select"></div>
+                </div>
+                <div class="form-group">
+                    <label>Select Content</label>
+                    <div id="schedule-media-picker-container"></div>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="schedule-start-time">Start Time</label>
+                        <input type="datetime-local" id="schedule-start-time">
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-end-time">End Time</label>
+                        <input type="datetime-local" id="schedule-end-time">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="delete-schedule-btn" class="btn btn-danger hidden" style="margin-right: auto;">Delete</button>
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="save-schedule-btn" class="btn btn-primary">Save Schedule</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-playlist-editor" class="modal-overlay">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 id="playlist-modal-title">Create Playlist</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="playlist-id-edit-storage">
+                <div class="form-group">
+                    <label for="playlist-name-input">Playlist Name</label>
+                    <input type="text" id="playlist-name-input" placeholder="e.g., Lobby Welcome Loop">
+                </div>
+                <div class="form-group">
+                    <label>Images in Playlist</label>
+                    <p class="form-hint">Click an image's duration to edit. Drag and drop to reorder.</p>
+                    <div class="playlist-slides-container" id="playlist-slides-container">
+                        <div class="playlist-slide add-slide-card" id="add-slide-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Slide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="delete-playlist-btn" class="btn btn-danger hidden" style="margin-right: auto;">Delete</button>
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="save-playlist-btn" class="btn btn-primary">Save Playlist</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-select-image" class="modal-overlay">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>Select Image(s)</h3>
+                <i class="fas fa-times close-modal"></i>
+            </div>
+            <div class="modal-body">
+                <p class="form-hint">Click one or more images to add to your playlist.</p>
+                <div class="image-picker-grid" id="playlist-image-selector-grid"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button id="add-selected-images-btn" class="btn btn-primary">Add Selected Images</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-functions.js" type="module"></script>
+    <script src="firebase-config.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

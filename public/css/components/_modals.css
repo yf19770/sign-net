@@ -1,0 +1,290 @@
+/* public/css/components/_modals.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--bg-light);
+    padding: 32px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    animation: modal-pop 0.3s ease;
+    margin: auto;
+}
+
+@keyframes modal-pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.modal-header h3 {
+    font-size: 20px;
+}
+
+.modal-header .close-modal {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.modal-body {
+    padding-top: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-control {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group input:read-only {
+    background-color: var(--bg-lighter);
+    cursor: not-allowed;
+}
+
+.modal-footer {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.form-hint {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: -4px;
+    margin-bottom: 8px;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-row .form-group {
+    flex: 1;
+}
+
+.multi-select-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.multi-select-item {
+    background-color: var(--bg-dark);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.multi-select-item.selected {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-hover);
+}
+
+.modal-tabs {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.modal-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.modal-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+
+/* --- START OF CORRECTED TAB LOGIC --- */
+
+/* Hide all tab content by default */
+.image-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* 2. Define the list layout for the playlist picker. */
+.playlist-picker-list {
+    display: flex; /* This is a key part of the fix */
+    flex-direction: column;
+    gap: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* 3. Handle the show/hide logic for tabs. */
+/*    This fixes the scheduler modal's picker. */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: grid; /* Default to grid for the image picker */
+}
+.tab-content.playlist-picker-list.active {
+    display: flex; /* Override to flex for the playlist list */
+}
+
+/* --- END OF CORRECTED TAB LOGIC --- */
+
+
+.image-picker-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.image-picker-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-picker-item.selected {
+    border-color: var(--primary-color);
+}
+
+.image-picker-item .selection-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(59, 130, 246, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.image-picker-item.selected .selection-indicator {
+    opacity: 1;
+}
+
+.playlist-picker-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.playlist-picker-item:hover {
+    background-color: var(--bg-lighter);
+}
+
+.playlist-picker-item.selected {
+    border-color: var(--primary-color);
+    background-color: var(--bg-lighter);
+}
+
+.playlist-picker-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.playlist-picker-item span {
+    font-weight: 500;
+}
+
+.playlist-picker-item .count {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}

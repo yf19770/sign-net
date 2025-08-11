@@ -1,0 +1,180 @@
+/* /css/guides.css */
+
+/* ====== GUIDE HERO STYLING ====== */
+.page-hero {
+    text-align: center;
+    padding: 140px 20px 80px 20px;
+    background-color: var(--bg-dark);
+}
+
+.page-hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-weight: 800;
+}
+
+.page-hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text-muted);
+}
+
+/* ====== GUIDE LAYOUT ====== */
+.guide-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.guide-step {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 40px;
+    padding-bottom: 60px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--border-color);
+}
+.guide-step:last-of-type {
+    border-bottom: none;
+}
+
+.step-number {
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(229, 231, 235, 0.1); /* --text-main at 10% opacity */
+    line-height: 1;
+}
+
+.step-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.step-content strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.guide-visual {
+    margin-top: 30px;
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====== RECREATED UI ELEMENT STYLES ====== */
+
+/* --- Modal Demo --- */
+.modal-content-demo { background-color: var(--bg-dark); padding: 32px; border-radius: 16px; width: 100%; max-width: 450px; border: 1px solid var(--border-color); }
+.modal-content-demo.large { max-width: 550px; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.modal-header h3 { font-size: 20px; color: var(--text-light); }
+.modal-body { padding-top: 10px; }
+.modal-footer { margin-top: 32px; display: flex; justify-content: flex-end; gap: 12px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px; }
+.form-group input { width: 100%; background-color: var(--bg-light); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.multi-select-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.multi-select-item { background-color: var(--bg-light); padding: 6px 12px; border-radius: 20px; font-size: 13px; border: 1px solid var(--border-color); }
+.multi-select-item.selected { background-color: var(--primary-color); color: #fff; }
+
+/* --- Media Upload Demo --- */
+.media-upload-area-demo { border: 2px dashed var(--border-color); border-radius: 12px; padding: 48px; text-align: center; background-color: var(--bg-dark); width: 100%; }
+.media-upload-area-demo i { font-size: 48px; color: var(--primary-color); margin-bottom: 16px; }
+.media-upload-area-demo h3 { font-size: 20px; color: var(--text-light); }
+.media-upload-area-demo p { font-size: 1rem; color: var(--text-muted); }
+
+/* --- Pairing Demo --- */
+.guide-visual.dual-visual { flex-direction: row; gap: 20px; flex-wrap: wrap; }
+.data-table-card-demo { background-color: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 280px; font-weight: 600; }
+.action-buttons i { margin-left: 16px; color: var(--text-muted); font-size: 16px; }
+.action-buttons i.active { color: var(--primary-color); }
+.pairing-box-demo { background-color: var(--bg-dark); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); width: 100%; max-width: 280px;}
+.pairing-box-demo h1 { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
+#pairing-pin-display { font-size: 2.5rem; font-weight: bold; letter-spacing: 10px; color: #fff; background-color: var(--bg-light); padding: 10px 15px; border-radius: 8px; font-family: "Courier New", Courier, monospace; }
+
+/* --- Image Picker Demo --- */
+.image-picker-demo { background: var(--bg-light); border: 2px solid var(--primary-color); border-radius: 8px; padding: 8px; display: flex; align-items: center; gap: 12px; }
+.image-picker-demo img { width: 50px; height: 50px; border-radius: 4px; object-fit: cover; }
+.image-picker-demo .picker-label { font-weight: 500; }
+
+/* --- Screen Preview Demo --- */
+.screen-preview-card-demo { width: 100%; max-width: 400px; border-radius: 12px; background-color: var(--bg-dark); border: 1px solid var(--border-color); box-shadow: 0 10px 20px rgba(0,0,0,0.2); overflow: hidden; }
+.screen-preview-card-demo .image-container { height: 200px; background-color: var(--bg-dark); }
+.screen-preview-card-demo .image-container img { width: 100%; height: 100%; object-fit: cover; }
+.screen-preview-card-demo .screen-info { padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+.screen-preview-card-demo .screen-info .name { font-weight: 600; }
+
+/* --- Next Steps CTA --- */
+.next-steps-section {
+    text-align: center;
+    background-color: var(--bg-light);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+.next-steps-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+.next-steps-section p { color: var(--text-muted); margin-bottom: 30px; }
+.next-steps-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+
+/* ====== RESPONSIVE STYLES ====== */
+@media (max-width: 768px) {
+    .page-hero h1 { font-size: 2.5rem; }
+    .page-hero p { font-size: 1.1rem; }
+
+    .guide-step {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .step-number {
+        justify-self: center;
+        font-size: 4rem;
+    }
+    .step-content h2 { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+    .page-hero { padding: 120px 20px 60px; }
+    .guide-container { margin: 60px auto; }
+}
+
+/* Add these new rules to the end of /css/guides.css */
+
+/* --- Playlist Editor Demo --- */
+.playlist-slides-container-demo { display: flex; gap: 15px; overflow-x: auto; padding: 15px; border: 1px solid var(--border-color); background-color: var(--bg-light); border-radius: 8px; min-height: 150px; align-items: center; }
+.add-slide-card-demo { flex-shrink: 0; width: 120px; height: 120px; border: 2px dashed var(--border-color); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); border-radius: 6px; }
+.add-slide-card-demo i { font-size: 1.5rem; margin-bottom: 8px; }
+
+.playlist-editor-demo { background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 16px; position: relative; }
+.playlist-slide-demo { width: 110px; height: 110px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); flex-shrink: 0; position: relative; }
+.playlist-slide-demo img { width: 100%; height: 100%; object-fit: cover; }
+.playlist-slide-demo.is-dragging-demo { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+.duration-editor-demo { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #fff; padding: 4px 8px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+.drop-placeholder-demo { width: 110px; height: 110px; border-radius: 8px; background: var(--bg-light); border: 2px dashed var(--primary-color); flex-shrink: 0; }
+.drag-cursor-demo { position: absolute; bottom: -5px; right: 90px; font-size: 20px; color: var(--text-light); transform: rotate(20deg); }
+
+
+/* --- Scheduler Modal Tab Demo --- */
+.modal-tabs-demo { display: flex; gap: 5px; border-bottom: 1px solid var(--border-color); margin-bottom: 12px; }
+.modal-tab { padding: 8px 16px; background: none; border: none; color: var(--text-muted); font-size: 1rem; font-weight: 500; border-bottom: 3px solid transparent; }
+.modal-tab.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+
+.playlist-picker-demo { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 6px; background-color: var(--bg-light); border: 2px solid var(--primary-color); }
+.playlist-picker-demo i { font-size: 1.5rem; color: var(--primary-color); }
+.playlist-picker-demo span { font-weight: 500; }
+.playlist-picker-demo .count { margin-left: auto; color: var(--text-muted); font-size: 0.9rem; }

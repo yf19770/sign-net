@@ -1,0 +1,61 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if the requester is the owner of a document.
+    function isOwner(resource) {
+      return request.auth.uid == resource.data.adminUid;
+    }
+
+    // --- User Data ---
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth.uid == userId;
+    }
+
+    // --- Screens Collection ---
+    match /screens/{screenId} {
+      allow create, update: if request.auth.uid == request.resource.data.adminUid;
+      allow delete: if request.auth.uid == get(/databases/$(database)/documents/screens/$(screenId)).data.adminUid;
+      allow list: if request.auth.uid == resource.data.adminUid;
+      allow get: if (request.auth.uid == resource.data.adminUid) || (request.auth.uid == screenId);
+    }
+
+    // --- Media Collection ---
+    match /media/{mediaId} {
+      allow create, update: if request.auth.uid == request.resource.data.adminUid;
+      allow delete: if request.auth.uid == get(/databases/$(database)/documents/media/$(mediaId)).data.adminUid;
+      allow read: if request.auth.uid == resource.data.adminUid;
+    }
+
+    // --- Playlists Collection (THIS IS THE FIX) ---
+    match /playlists/{playlistId} {
+      allow create, update: if request.auth.uid == request.resource.data.adminUid;
+      allow delete: if request.auth.uid == get(/databases/$(database)/documents/playlists/$(playlistId)).data.adminUid;
+      
+      // An Admin can read their own playlists.
+      // A Screen can read a playlist IF that playlist belongs to the screen's owner.
+      allow read: if request.auth.uid == resource.data.adminUid ||
+                   (exists(/databases/$(database)/documents/screens/$(request.auth.uid)) &&
+                    get(/databases/$(database)/documents/screens/$(request.auth.uid)).data.adminUid == resource.data.adminUid);
+    }
+
+    // --- Schedules Collection ---
+    match /schedules/{scheduleId} {
+      allow create, update: if request.auth.uid == request.resource.data.adminUid;
+      allow delete: if request.auth.uid == get(/databases/$(database)/documents/schedules/$(scheduleId)).data.adminUid;
+      allow read: if (request.auth.uid == resource.data.adminUid) || (request.auth.uid in resource.data.screenIds);
+    }
+    
+    // --- Special Rule for a Screen to read its owner's settings ---
+    match /users/{userId}/settings/main {
+      allow get: if exists(/databases/$(database)/documents/screens/$(request.auth.uid)) && 
+                    get(/databases/$(database)/documents/screens/$(request.auth.uid)).data.adminUid == userId;
+    }
+    
+    // --- Pairing Requests ---
+    match /pairingRequests/{pairingId} {
+       allow read, create: if true; 
+       allow update: if request.auth.token.firebase.sign_in_provider != 'custom';
+    }
+  }
+}

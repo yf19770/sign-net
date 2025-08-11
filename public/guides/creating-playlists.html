@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Create a Playlist | Signet Guide</title>
+    <meta name="description" content="A step-by-step guide on how to create, manage, and schedule dynamic image playlists for your digital signs using Signet.">
+    
+    <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Shared & Page-Specific CSS -->
+    <link rel="stylesheet" href="/css/landing.css">
+    <link rel="stylesheet" href="/css/guides.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- ====== Guide Hero Section ====== -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Guide: Creating a Dynamic Playlist</h1>
+                <p>Playlists are the best way to display a rotating series of images. Follow this guide to build and schedule your first one.</p>
+            </div>
+        </section>
+
+        <div class="guide-container">
+            <!-- ====== Step 1: Create the Playlist ====== -->
+            <div class="guide-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h2>Create a New Playlist</h2>
+                    <p>From the "Media Library" page, click the "Create Playlist" button. This will open the playlist editor. Give your playlist a clear name that describes its purpose, like "Lobby Welcome Loop" or "Weekly Promotions".</p>
+                    <div class="guide-visual">
+                        <div class="modal-content-demo large">
+                            <div class="modal-header"><h3>Create Playlist</h3></div>
+                            <div class="modal-body">
+                                <div class="form-group"><label>Playlist Name</label><input type="text" placeholder="e.g., Lobby Welcome Loop" value="Weekly Promotions"></div>
+                                <div class="form-group"><label>Images in Playlist</label><p class="form-hint">Click "Add Slide" to select images.</p><div class="playlist-slides-container-demo"><div class="add-slide-card-demo"><i class="fas fa-plus"></i><span>Add Slide</span></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Step 2: Add and Manage Slides ====== -->
+            <div class="guide-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h2>Add and Manage Slides</h2>
+                    <p>Click "Add Slide" to select images from your media library. You can then reorder them by dragging and dropping. Click on the duration (e.g., "10s") on any slide to set how long it should appear on screen.</p>
+                    <div class="guide-visual">
+                        <div class="playlist-editor-demo">
+                            <div class="playlist-slide-demo"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=600" alt="Hotel"></div>
+                            <div class="playlist-slide-demo is-dragging-demo"><img src="https://firebasestorage.googleapis.com/v0/b/signet-osfy.firebasestorage.app/o/office.jpg?alt=media&token=1ee76b8c-3082-445e-9da7-95b99378dfa5" alt="Office"><div class="duration-editor-demo">15s</div></div>
+                            <div class="drop-placeholder-demo"></div>
+                            <div class="playlist-slide-demo"><img src="https://firebasestorage.googleapis.com/v0/b/signet-osfy.firebasestorage.app/o/campus.jpg?alt=media&token=a5ca078f-635b-47d1-89c3-023fafd71c7d" alt="Campus"></div>
+                            <i class="fas fa-hand-rock drag-cursor-demo"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ====== Step 3: Schedule Your Playlist ====== -->
+            <div class="guide-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h2>Schedule Your Playlist</h2>
+                    <p>Once saved, your playlist acts like any other piece of content. Go to the "Scheduler," create a new event, and this time, select the "Playlists" tab to find and select your newly created playlist.</p>
+                    <div class="guide-visual">
+                        <div class="modal-content-demo large">
+                            <div class="modal-header"><h3>Create Schedule Item</h3></div>
+                            <div class="modal-body">
+                                <div class="form-group"><label>Select Screen(s)</label><div class="multi-select-container"><div class="multi-select-item selected">Lobby TV</div></div></div>
+                                <div class="form-group"><label>Select Content</label>
+                                    <div class="modal-tabs-demo"><button class="modal-tab">Images</button><button class="modal-tab active">Playlists</button></div>
+                                    <div class="playlist-picker-demo"><i class="fas fa-layer-group"></i><span>Weekly Promotions</span><span class="count">3 items</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Next Steps CTA ====== -->
+            <div class="next-steps-section">
+                <h3>Playlist Pro!</h3>
+                <p>You've now learned the core workflow of Signet. You can create as many playlists as you need for different purposes and screens.</p>
+                <div class="next-steps-buttons">
+                    <a href="/guides/getting-started.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Getting Started</a>
+                    <a href="/features.html" class="btn btn-primary">Explore All Features</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="/firebase-config.js"></script>
+    <script type="module" src="/js/landing-auth.js"></script>
+    <script src="/js/page-loader.js"></script>
+</body>
+</html>

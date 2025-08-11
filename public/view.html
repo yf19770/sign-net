@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signet Screen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/view.css">
+</head>
+<body>
+
+    <!-- START OF FIX: New double-buffer image container -->
+    <div id="image-container">
+        <img id="image-slot-a" class="image-slot" alt="Signet Display">
+        <img id="image-slot-b" class="image-slot" alt="Signet Display">
+    </div>
+    <!-- END OF FIX -->
+    
+    <div id="pairing-container">
+        <div class="pairing-box">
+            <div class="pairing-logo">
+                <i class="fas fa-satellite-dish"></i>
+                <span>Signet</span>
+            </div>
+            <h1>Pair This Screen</h1>
+            
+            <div class="pairing-active-content">
+                <p>In your Signet dashboard, go to the 'Screens' page, find the correct screen, click the link icon, and enter this code:</p>
+                <div id="pairing-pin-display">--- ---</div>
+                <div class="spinner"></div>
+                <p class="status-text">Requesting pairing code...</p>
+            </div>
+
+            <div class="pairing-stale-content">
+                <p>For security, your pairing code has expired. Click the button below to generate a new one.</p>
+                <button id="generate-new-code-btn" class="btn btn-primary">Generate New Code</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-container" class="overlay-container">
+        <div class="overlay-box">
+            <h1>Screen Not Found</h1>
+            <p>Please check the URL and ensure the screen is configured correctly in the dashboard.</p>
+        </div>
+    </div>
+
+    <div id="logout-confirm-modal" class="overlay-container">
+        <div class="overlay-box">
+            <h1>Reset Screen?</h1>
+            <p>This will unpair the screen and return it to the pairing code screen. Are you sure you want to continue?</p>
+            <div class="modal-actions">
+                <button id="cancel-logout-btn" class="btn btn-secondary">Cancel</button>
+                <button id="confirm-logout-btn" class="btn btn-danger">Confirm & Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-functions.js" type="module"></script>
+
+    <!-- Firebase Config & View Logic -->
+    <script src="firebase-config.js"></script>
+    <script type="module" src="js/view.js"></script>
+</body>
+</html>
